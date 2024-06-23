@@ -14,7 +14,7 @@ public interface NoteRedactorRole {
     String CODE = "note-redactor";
 
     @EntityAttributePolicy(entityClass = Note.class, attributes = "id", action = EntityAttributePolicyAction.VIEW)
-    @EntityAttributePolicy(entityClass = Note.class, attributes = {"owner", "name", "text"}, action = EntityAttributePolicyAction.MODIFY)
+    @EntityAttributePolicy(entityClass = Note.class, attributes = {"name", "text", "user"}, action = EntityAttributePolicyAction.MODIFY)
     @EntityPolicy(entityClass = Note.class, actions = EntityPolicyAction.ALL)
     void note();
 

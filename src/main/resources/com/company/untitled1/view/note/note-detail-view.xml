@@ -6,7 +6,6 @@
         <instance id="noteDc"
                   class="com.company.untitled1.entity.Note">
             <fetchPlan extends="_base">
-                <property name="user" fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
         </instance>
@@ -22,12 +21,6 @@
         <formLayout id="form" dataContainer="noteDc">
             <textField id="textField" property="text"/>
             <textField id="nameField" property="name"/>
-            <entityPicker id="userField" property="user">
-                <actions>
-                    <action id="entityLookup" type="entity_lookup"/>
-                    <action id="entityClear" type="entity_clear"/>
-                </actions>
-            </entityPicker>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>
