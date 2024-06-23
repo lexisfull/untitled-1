@@ -12,15 +12,17 @@
             </column>
             <column name="TEXT" type="VARCHAR(1000)"/>
             <column name="NAME" type="VARCHAR(20)"/>
-            <column name="OWNER_ID" type="UUID"/>
+            <column name="USER_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet id="2" author="untitled-1">
-        <createIndex indexName="IDX_NOTE_OWNER" tableName="NOTE">
-            <column name="OWNER_ID"/>
+        <createIndex indexName="IDX_NOTE_USER" tableName="NOTE">
+            <column name="USER_ID"/>
         </createIndex>
 
-        <addForeignKeyConstraint baseColumnNames="OWNER_ID" baseTableName="NOTE" constraintName="FK_NOTE_ON_OWNER"
-                                 referencedColumnNames="ID" referencedTableName="USER_"/>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="NOTE" constraintName="FK_NOTE_ON_USER"
+                                 onDelete="CASCADE" referencedColumnNames="ID" referencedTableName="USER_"/>
     </changeSet>
 </databaseChangeLog>
